@@ -5,7 +5,7 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const config = require('config');
 const { check, validationResult } = require('express-validator');
-
+const auth = require('../../middleware/auth');
 const HTTP_STATUSES = require('../../helpers/HTTP_STATUSES');
 
 const User = require('../../models/User');
@@ -72,4 +72,17 @@ router.post(
   }
 );
 
+// @route GET api/users
+// @desc get all users
+// @access Private
+router.get('/', auth, async (req, res) => {
+  try {
+    // See if the user exist
+    let users = await User.find().select('-password');
+    res.json(users);
+  } catch (error) {
+    console.error(error.message);
+    res.status(HTTP_STATUSES.SERVER_ERROR_500).send('Serever error');
+  }
+});
 module.exports = router;
