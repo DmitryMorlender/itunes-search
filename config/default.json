@@ -1,4 +1,4 @@
 {
-    "mongoURI":"mongodb+srv://dmitry1987:ice12345@itunessearch-10zvi.mongodb.net/test?retryWrites=true&w=majority",
-    "jwtSecret": "myITunesSearchSecretToken"
+    "mongoURI":"YOUR_CONNECTION",
+    "jwtSecret": "YOUR_SECRET"
 }
