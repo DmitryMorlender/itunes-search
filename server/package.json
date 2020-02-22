@@ -7,7 +7,7 @@
     "start": "npm run dev",
     "test": "echo \"Error: no test specified\" && exit 1",
     "server": "nodemon server",
-    "client": "npm start --prefix client",
+    "client": "npm start --prefix ../client",
     "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "author": "Dmitry Morlender",
