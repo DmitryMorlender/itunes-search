@@ -1,0 +1,101 @@
+
+@mixin title-style {
+    font-family: 'Squada One';
+    color: #000000bf;
+}
+
+.details-container{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100vh;
+    flex:1;
+    padding: 2rem 0;
+    background: #262626e3;
+
+    .artist-details-container{
+        display: flex;
+        flex-direction: column;
+        background: #fdfdfd78;
+        margin: 0 auto;
+        min-width: 70%;
+        padding: 5rem 5rem;
+
+        .top-artist-details{
+            display: flex;
+          
+        
+        .artist-details-image {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            overflow: hidden;
+            transition: all .2s ease-in-out;
+
+            img{
+                position: absolute;
+                max-width: 100%;
+                width: 100%;
+                height: auto;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+        }
+
+        .artist-details {
+            margin-left: 2rem;
+           @include title-style;
+
+            .artist-details-name {
+                font-size: 4rem;
+            }
+            
+            .artist-details-track {
+                font-size: 2rem;
+            }
+            
+            .artist-details-collection {
+                font-size: 2rem;
+            }
+        }
+        }
+
+            .middle-artist-details {
+                display: flex;
+                flex-direction: column;
+                @include title-style;
+
+                h1{
+                    font-size: 3rem;
+                }
+
+                .artist-preview-links {
+                    display: flex;
+                    flex-direction: column;
+
+                    a{
+                        font-size: 1.5rem;
+                    }
+                }
+            }
+            
+            .more-details-and-preview-container{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                flex-wrap: wrap;
+              
+                .more-details{
+                    @include title-style;
+                    font-size: 1.5rem;
+
+                    h1{
+                        font-size: 3rem;
+                    }
+                }
+            }
+          
+        }
+    
+}

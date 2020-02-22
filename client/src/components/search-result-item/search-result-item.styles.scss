@@ -1,0 +1,41 @@
+
+.card {
+ 
+  display: flex;
+  transition: all .2s ease-in-out;
+  padding: 20px;
+  flex-direction: column;
+  cursor: pointer;
+
+
+
+    .image {
+      position: relative;
+      width: 300px;     
+      height: 300px;
+      overflow: hidden;
+      transition: all .2s ease-in-out;
+
+      
+      img{
+        position: absolute;
+        max-width: 100%;
+        width: 100%;
+        height: auto;
+        top: 50%;     
+        left: 50%;
+        transform: translate( -50%, -50%);
+      }
+    }
+    
+    .text {
+      font-family: 'Concert One', cursive;
+      display: flex;
+      background-color: white;
+      flex-direction: column;
+      padding: 10px 10px;
+    }
+
+  }
+ 
+  

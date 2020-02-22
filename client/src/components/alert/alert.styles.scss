@@ -1,0 +1,16 @@
+.alert-container {
+    position: fixed;
+    display: block;
+    z-index: 2;
+    top: 10px;
+    right: 10px;
+    min-width: 300px;
+    padding: 10px 20px;
+
+    .alert{
+        margin: 10px 10px;
+        font-family: 'Concert One', cursive;
+
+        
+    }
+}

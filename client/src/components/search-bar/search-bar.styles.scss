@@ -1,0 +1,98 @@
+
+@mixin header-buttons {
+  margin: 0 2rem;
+  font-family: 'Concert One', cursive;
+  font-size: 1.5rem;
+}
+
+
+.search-container {
+  width: 67%;
+
+  .search-holder {
+
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  
+  
+  }
+    
+    .search-bar {
+      background: #262626;
+      padding: 1rem 1rem;
+      display: flex;
+      align-items: center;
+      flex-direction: row;
+      justify-content: center;
+  
+      .search-field-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        width: 60%;
+  
+        .clear-search-btn{
+          position: absolute;
+          right: 1rem;
+          opacity: 0;
+          transition: opacity 0.3s ease;
+          cursor: pointer;
+  
+          &.visible{  
+            opacity: 1;
+          }
+        }
+    }
+  
+      .search-btn{
+        @include header-buttons;
+      }
+
+      .top-searches-btn{
+        @include header-buttons;
+       background :#ea8b14;
+
+      }
+    
+      input {
+        outline: none;
+        font-family: 'Concert One', cursive;
+        width: 100%;
+        padding: 1rem;
+        border: 1px solid #1d1d1d;
+        background: #1f1f1f;
+        font-size: 1.5rem;
+        color: #fff;
+        font-weight: 400;
+        transition: border 0.5s ease;
+       
+        &:focus{
+          border: 2px solid #bc2e2e;
+        }
+      }
+  
+      @media only screen and (max-width: 479px) {
+          padding: 2rem 2rem 2rem;
+          input {
+            width: 80%;}
+        }
+    
+    }
+
+
+    .top-searches-container {
+      position: absolute;
+      background: #262626;
+      right: 0;
+      left: 0;
+  }
+  
+
+
+
+}
+
+

@@ -1,0 +1,15 @@
+.preview{
+    margin-top: 2rem;
+
+    &.full-width{
+        width: 100%;
+    }
+   
+    .video-preview{
+        width: 20%;
+    }
+
+    .audio-preview{
+        width: 90%;
+    }
+}
