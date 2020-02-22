@@ -1,4 +1,5 @@
 const express = require('express');
+const mongoose = require('mongoose');
 const router = express.Router();
 const gravatar = require('gravatar');
 const bcrypt = require('bcryptjs');
@@ -85,4 +86,24 @@ router.get('/', auth, async (req, res) => {
     res.status(HTTP_STATUSES.SERVER_ERROR_500).send('Serever error');
   }
 });
+
+// @route DELETE api/users/:user_id
+// @desc delete user
+// @access Private
+router.delete('/:user_id', auth, async (req, res) => {
+  try {
+    const {
+      user: { id },
+      params
+    } = req;
+    console.log(params.user_id);
+    const aa = await User.findOne({ _id: mongoose.Types.ObjectId(params.user_id) });
+
+    return res.json({ msg: 'User deleted ' + params.user_id, aa });
+  } catch (error) {
+    console.error(error.message);
+    res.status(HTTP_STATUSES.SERVER_ERROR_500).send('Server error');
+  }
+});
+
 module.exports = router;
