@@ -3,10 +3,10 @@
  
   display: flex;
   transition: all .2s ease-in-out;
-  padding: 20px;
+  margin: 15px;
   flex-direction: column;
   cursor: pointer;
-
+  border: 7px #464646 solid;
 
 
     .image {
@@ -34,6 +34,16 @@
       background-color: white;
       flex-direction: column;
       padding: 10px 10px;
+      width: 220px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+
+      h3{
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+      }
     }
 
   }
