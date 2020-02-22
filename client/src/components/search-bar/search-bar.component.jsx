@@ -40,14 +40,14 @@ const SearchBar = ({
   };
 
   return (
-    <div className="search-container">
-      <div className="search-holder">
-        <div className="search-bar">
-          <div className="search-field-container">
+    <div className="itunes-search-container">
+      <div className="itunes-search-holder">
+        <div className="itunes-search-bar">
+          <div className="itunes-search-field-container">
             <input type="text" id="searchInput" placeholder={`Find your Music...`} onKeyDown={onEnterPress} onChange={onSearchTextChange} value={searchTerm} />
-            <ClearIcon className={`clear-search-btn ${searchTerm !== '' ? 'visible' : ''}`} onClick={clearSearch}></ClearIcon>
+            <ClearIcon className={`itunes-clear-search-btn ${searchTerm !== '' ? 'itunes-visible' : ''}`} onClick={clearSearch}></ClearIcon>
           </div>
-          <Button size="large" variant="contained" color="secondary" className="search-btn" onClick={onSearchPressed} disabled={isLoading}>
+          <Button size="large" variant="contained" color="secondary" className="itunes-search-btn" onClick={onSearchPressed} disabled={isLoading}>
             Search
           </Button>
 
@@ -57,7 +57,7 @@ const SearchBar = ({
               size="large"
               variant="contained"
               color="secondary"
-              className={`top-searches-btn`}
+              className={`itunes-top-searches-btn`}
               disabled={isTopSearchResultsSectionLoading}>
               {isTopSearchResultsSectionLoading ? 'Loading..' : 'Top 10 Searches'}
             </Button>
@@ -65,7 +65,7 @@ const SearchBar = ({
         </div>
       </div>
       {isAthenticated && (
-        <div {...getCollapseProps()} className="top-searches-container">
+        <div {...getCollapseProps()} className="itunes-top-searches-container">
           <TopSearchesContainer></TopSearchesContainer>
         </div>
       )}

@@ -1,7 +1,7 @@
 /* Navbar */
 
 
-  .navbar {
+  .itunes-navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -20,21 +20,26 @@
           color: #fff;
           padding: 0.45rem;
           margin: 0 0.25rem;
+          text-decoration: none !important;
+          
+          &:hover{
+            color: #fff;
+          }
         }
       
-        .welcome {
+        .itunes-welcome {
           display: none;
           span {
             margin-right: 0.6rem;
           }
         }
 
-        .home-icon{
+        .itunes-home-icon{
           display: flex;
         }
     }
 
-  .bg-dark{
+  .itunes-bg-dark{
     background:#262626;
     color: #fff;
   }

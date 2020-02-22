@@ -4,7 +4,7 @@
     color: #000000bf;
 }
 
-.details-container{
+.itunes-details-container{
     display: flex;
     justify-content: center;
     align-items: flex-start;
@@ -13,7 +13,11 @@
     padding: 2rem 0;
     background: #262626e3;
 
-    .artist-details-container{
+    h1{
+        @include title-style;
+    }
+
+    .itunes-artist-details-container{
         display: flex;
         flex-direction: column;
         background: #fdfdfd78;
@@ -21,11 +25,11 @@
         min-width: 70%;
         padding: 5rem 5rem;
 
-        .top-artist-details{
+        .itunes-top-artist-details{
             display: flex;
           
         
-        .artist-details-image {
+        .itunes-artist-details-image {
             position: relative;
             width: 300px;
             height: 300px;
@@ -43,25 +47,25 @@
             }
         }
 
-        .artist-details {
+        .itunes-artist-details {
             margin-left: 2rem;
            @include title-style;
 
-            .artist-details-name {
+            .itunes-artist-details-name {
                 font-size: 4rem;
             }
             
-            .artist-details-track {
+            .itunes-artist-details-track {
                 font-size: 2rem;
             }
             
-            .artist-details-collection {
+            .itunes-artist-details-collection {
                 font-size: 2rem;
             }
         }
         }
 
-            .middle-artist-details {
+            .itunes-middle-artist-details {
                 display: flex;
                 flex-direction: column;
                 @include title-style;
@@ -70,23 +74,27 @@
                     font-size: 3rem;
                 }
 
-                .artist-preview-links {
+                .itunes-artist-preview-links {
                     display: flex;
                     flex-direction: column;
 
                     a{
                         font-size: 1.5rem;
+
+                        &:hover{
+                            color: #f50057;
+                        }
                     }
                 }
             }
             
-            .more-details-and-preview-container{
+            .itunes-more-details-and-preview-container{
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
                 flex-wrap: wrap;
               
-                .more-details{
+                .itunes-more-details{
                     @include title-style;
                     font-size: 1.5rem;
 

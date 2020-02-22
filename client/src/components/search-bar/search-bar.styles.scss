@@ -6,10 +6,10 @@
 }
 
 
-.search-container {
+.itunes-search-container {
   width: 67%;
 
-  .search-holder {
+  .itunes-search-holder {
 
     display: flex;
     flex-direction: column;
@@ -18,7 +18,7 @@
   
   }
     
-    .search-bar {
+    .itunes-search-bar {
       background: #262626;
       padding: 1rem 1rem;
       display: flex;
@@ -26,7 +26,7 @@
       flex-direction: row;
       justify-content: center;
   
-      .search-field-container {
+      .itunes-search-field-container {
         display: flex;
         flex-direction: row;
         justify-content: center;
@@ -34,24 +34,24 @@
         position: relative;
         width: 60%;
   
-        .clear-search-btn{
+        .itunes-clear-search-btn{
           position: absolute;
           right: 1rem;
           opacity: 0;
           transition: opacity 0.3s ease;
           cursor: pointer;
   
-          &.visible{  
+          &.itunes-visible{  
             opacity: 1;
           }
         }
     }
   
-      .search-btn{
+      .itunes-search-btn{
         @include header-buttons;
       }
 
-      .top-searches-btn{
+      .itunes-top-searches-btn{
         @include header-buttons;
        background :#ea8b14;
 
@@ -83,7 +83,7 @@
     }
 
 
-    .top-searches-container {
+    .itunes-top-searches-container {
       position: absolute;
       background: #262626;
       right: 0;

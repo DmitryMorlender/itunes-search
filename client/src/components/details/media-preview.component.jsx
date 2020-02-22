@@ -7,13 +7,13 @@ const MediaPreviewComponent = ({ previewUrl = '', isVideo }) => {
   return (
     previewUrl &&
     previewUrl !== '' && (
-      <div className={`preview ${!isVideo ? 'full-width' : ''}`}>
+      <div className={`itunes-preview ${!isVideo ? 'itunes-full-width' : ''}`}>
         {isVideo ? (
-          <div className="video-preview">
+          <div className="itunes-video-preview">
             <ReactPlayer controls={true} url={`${previewUrl}`} style={{ position: 'relative' }} />
           </div>
         ) : (
-          <div className="audio-preview">
+          <div className="itunes-audio-preview">
             <AudioPlayer src={`${previewUrl}`}></AudioPlayer>
           </div>
         )}

@@ -5,7 +5,7 @@ import SearchItemComponent from '../search-result-item/search-result-item.compon
 import './search-results-list.styles.scss';
 const SearchResultsListComponent = ({ data = [] }) => {
   return (
-    <div className="app-card-list">
+    <div className="itunes-app-card-list">
       {data.map((item, index) => (
         <SearchItemComponent key={`${index}-${item.artworkUrl100}`} item={item}></SearchItemComponent>
       ))}

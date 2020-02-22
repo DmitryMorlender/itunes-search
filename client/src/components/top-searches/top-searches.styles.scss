@@ -1,16 +1,16 @@
-.flex-list {
+.itunes-flex-list {
     position: relative;
     margin: 1em;
     overflow: hidden;
 }
-.flex-list ul {
+.itunes-flex-list ul {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
     margin-left: -1px;
 }
-.flex-list li {
+.itunes-flex-list li {
     flex-basis: auto;
     margin: .25em 0;
     padding: 0 1em;

@@ -11,19 +11,19 @@ import logo from '../../img/showcase_itunes.jpg';
 import './home-page.styles.scss';
 const HomePage = ({ data, loadMore, currentPageNumber, shouldLoadMore }) => {
   return (
-    <section className="home-page">
+    <section className="itunes-home-page">
       <div id="bg">
-        <div className={`dark-overlay ${data && data.length > 0 ? 'darker-overlay' : ''}`}></div>
+        <div className={`itunes-dark-overlay ${data && data.length > 0 ? 'itunes-darker-overlay' : ''}`}></div>
         <img src={logo} alt="" />
       </div>
 
-      <div className="home-page-inner">
+      <div className="itunes-home-page-inner">
         {!data ? (
-          <h1 className="main-title">
-            Search for music you just.......<span className="main-title-emph">LOVE.</span>
+          <h1 className="itunes-main-title">
+            Search for music you just.......<span className="itunes-main-title-emph">LOVE.</span>
           </h1>
         ) : data && data.length <= 0 ? (
-          <h1 className="main-title">{`Sorry... no results found...`}</h1>
+          <h1 className="itunes-main-title">{`Sorry... no results found...`}</h1>
         ) : (
           <InfiniteScroll
             pageStart={currentPageNumber}
@@ -31,7 +31,7 @@ const HomePage = ({ data, loadMore, currentPageNumber, shouldLoadMore }) => {
             initialLoad={false}
             hasMore={shouldLoadMore}
             loader={
-              <div className="loader" key={0}>
+              <div className="itunes-loader" key={0}>
                 <Loader type="Puff" color="#e6e6e682" height={80} width={80} visible={true} />
               </div>
             }

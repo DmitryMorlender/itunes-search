@@ -1,5 +1,5 @@
 
-.card {
+.itunes-card {
  
   display: flex;
   transition: all .2s ease-in-out;
@@ -9,7 +9,7 @@
   border: 7px #464646 solid;
 
 
-    .image {
+    .itunes-image {
       position: relative;
       width: 220px;     
       height: 220px;
@@ -28,7 +28,7 @@
       }
     }
     
-    .text {
+    .itunes-text {
       font-family: 'Concert One', cursive;
       display: flex;
       background-color: white;

@@ -5,7 +5,7 @@ import './header.styles.scss';
 
 const Header = () => {
   return (
-    <div className="navbar-container">
+    <div className="itunes-navbar-container">
       <NavBar></NavBar>
     </div>
   );

@@ -10,11 +10,11 @@ const SearchItemComponent = ({ item }) => {
         pathname: '/details',
         search: `trackId=${trackId}`
       }}>
-      <div className="card">
-        <div className="image">
+      <div className="itunes-card">
+        <div className="itunes-image">
           <img src={`${artworkUrl100}`} />
         </div>
-        <div className="text">
+        <div className="itunes-text">
           <h3>{`${artistName}`}</h3>
           <p>{`${moment(new Date(releaseDate)).format('ll')}`}</p>
         </div>

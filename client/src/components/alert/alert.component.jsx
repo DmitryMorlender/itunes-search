@@ -8,15 +8,15 @@ import PropTypes from 'prop-types';
 import './alert.styles.scss';
 const AlertComponent = ({ alerts }) => {
   return (
-    <div className="alert-container">
+    <div className="itunes-alert-container">
       {alerts !== null &&
         alerts.length > 0 &&
         alerts.map(alert => {
           const { id, title = '', msg = '', type } = alert;
           if (!alert) return null;
           return (
-            <Alert key={id} severity={type} className="alert">
-              {title !== '' && <AlertTitle className="alert-title">{`${title}`}</AlertTitle>}
+            <Alert key={id} severity={type} className="itunes-alert">
+              {title !== '' && <AlertTitle className="itunes-alert-title">{`${title}`}</AlertTitle>}
               <p>{`${msg}`}</p>
             </Alert>
           );

@@ -34,10 +34,10 @@ const NavBar = ({ isAuthenticated = false, isLoading, logout }) => {
   );
   return (
     <Headroom>
-      <nav className="navbar bg-dark">
+      <nav className="itunes-navbar itunes-bg-dark">
         <h1>
           <Link to="/">
-            <div className="home-icon">
+            <div className="itunes-home-icon">
               <LibraryMusicSharpIcon fontSize="large"></LibraryMusicSharpIcon>
               <span style={{ marginLeft: '10px' }}>iTunes Search</span>
             </div>

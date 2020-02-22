@@ -34,36 +34,36 @@ const DetailsPage = ({ item = [], location }) => {
   ] = item && item.length > 0 ? item : [{}];
 
   return (
-    <div className="details-container">
-      <div className="artist-details-container">
+    <div className="itunes-details-container">
+      <div className="itunes-artist-details-container">
         {item && item.length > 0 ? (
           <>
-            <div className="top-artist-details">
-              <div className="artist-details-image">
+            <div className="itunes-top-artist-details">
+              <div className="itunes-artist-details-image">
                 <img src={`${artworkUrl100}`} />
               </div>
-              <div className="artist-details">
-                <div className="artist-details-name">{`${artistName}`}</div>
-                <div className="artist-details-track">{`${trackName}`}</div>
-                <div className="artist-details-collection">{`${collectionName}`}</div>
+              <div className="itunes-artist-details">
+                <div className="itunes-artist-details-name">{`${artistName}`}</div>
+                <div className="itunes-artist-details-track">{`${trackName}`}</div>
+                <div className="itunes-artist-details-collection">{`${collectionName}`}</div>
               </div>
             </div>
-            <div className="middle-artist-details">
-              <h1 className="dtails-title">{`Usefull Links:`}</h1>
-              <div className="artist-preview-links">
+            <div className="itunes-middle-artist-details">
+              <h1 className="itunes-dtails-title">{`Usefull Links:`}</h1>
+              <div className="itunes-artist-preview-links">
                 <a href={`${artistViewUrl}`} target="_blank">{`Learn More About: ${artistName.toUpperCase()}`}</a>
                 <a href={`${collectionViewUrl}`} target="_blank">{`Learn More About '${collectionName.toUpperCase()}'`}</a>
                 <a href={`${trackViewUrl}`} target="_blank">{`Learn More About '${trackName}'`}</a>
               </div>
             </div>
-            <div className="more-details-and-preview-container">
-              <div className="more-details">
-                <h1 className="dtails-title">{`More Details`}</h1>
-                <p className="">{`Release Date: ${moment(new Date(releaseDate)).format('ll')}`}</p>
-                <p className="">{`Time: ${msToTime(trackTimeMillis)}`}</p>
-                <p className="">{`Currency: ${currency}`}</p>
-                <p className="">{`Primary Genre: ${primaryGenreName}`}</p>
-                <p className="">{`Country: ${country}`}</p>
+            <div className="itunes-more-details-and-preview-container">
+              <div className="itunes-more-details">
+                <h1 className="itunes-dtails-title">{`More Details`}</h1>
+                <p className="itunes-details-release">{`Release Date: ${moment(new Date(releaseDate)).format('ll')}`}</p>
+                <p className="itunes-details-time">{`Time: ${msToTime(trackTimeMillis)}`}</p>
+                <p className="itunes-details-currency">{`Currency: ${currency}`}</p>
+                <p className="itunes-details-primary-genre">{`Primary Genre: ${primaryGenreName}`}</p>
+                <p className="itunes-details-country">{`Country: ${country}`}</p>
               </div>
               <MediaPreviewComponent previewUrl={previewUrl} isVideo={previewUrl.includes('m4v')} />
             </div>

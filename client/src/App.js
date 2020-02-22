@@ -18,6 +18,7 @@ import { authenticateUser } from './redux/auth/auth/auth.actions';
 import { Provider } from 'react-redux';
 import store from './redux/store';
 
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
 const App = () => {
@@ -31,7 +32,7 @@ const App = () => {
         <Fragment>
           <Header></Header>
           <Route exact path="/" component={HomePage}></Route>
-          <section className="container">
+          <section className="itunes-container">
             <AlertComponent></AlertComponent>
             <Switch>
               <Route exact path="/register" component={RegisterPage}></Route>
