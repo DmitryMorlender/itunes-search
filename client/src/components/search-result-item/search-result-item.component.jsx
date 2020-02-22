@@ -1,13 +1,9 @@
 import React from 'react';
+import moment from 'moment';
 import { Link } from 'react-router-dom';
 import './search-result-item.styles.scss';
 const SearchItemComponent = ({ item }) => {
-  const {
-    trackId = '1440661545',
-    artistName = 'Justin Bieber',
-    artworkUrl100 = 'https://is4-ssl.mzstatic.com/image/thumb/Music118/v4/cc/e4/f8/cce4f828-85bb-ad43-08cf-9c30447bdc50/source/100x100bb.jpg',
-    releaseDate = '2012-06-15T12:00:00Z'
-  } = item;
+  const { trackId = '', artistName = '', artworkUrl100 = '', releaseDate = '' } = item;
   return (
     <Link
       to={{
@@ -20,7 +16,7 @@ const SearchItemComponent = ({ item }) => {
         </div>
         <div className="text">
           <h3>{`${artistName}`}</h3>
-          <p>{`${releaseDate}`}</p>
+          <p>{`${moment(new Date(releaseDate)).format('ll')}`}</p>
         </div>
       </div>
     </Link>
