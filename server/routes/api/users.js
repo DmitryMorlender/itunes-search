@@ -92,11 +92,8 @@ router.get('/', auth, async (req, res) => {
 // @access Private
 router.delete('/:user_id', auth, async (req, res) => {
   try {
-    const {
-      user: { id },
-      params
-    } = req;
-    console.log(params.user_id);
+    const { params } = req;
+
     const aa = await User.findOne({ _id: mongoose.Types.ObjectId(params.user_id) });
 
     return res.json({ msg: 'User deleted ' + params.user_id, aa });
