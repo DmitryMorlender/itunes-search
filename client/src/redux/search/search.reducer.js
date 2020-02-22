@@ -19,7 +19,7 @@ const searchReducer = (state = INITIAL_STATE, action) => {
 
   switch (type) {
     case SearchActionTypes.SEARCH_TERM_CHANGED:
-      return { ...state, searchTerm: payload, isLoading: true };
+      return { ...state, searchTerm: payload };
     case SearchActionTypes.SEARCH:
       return { ...state, isLoading: true, currentPage: 0, searchResults: null };
     case SearchActionTypes.TOGGLE_TOP_SEARCH_RESULTS_SECTION:

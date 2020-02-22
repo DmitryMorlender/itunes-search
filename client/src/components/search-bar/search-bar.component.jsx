@@ -6,11 +6,12 @@ import { withRouter } from 'react-router-dom';
 import TopSearchesContainer from '../../containers/top-searches.container';
 import { search, onSearchTermChange, clearSearch, toggleTopSearchResultsSection } from '../../redux/search/search.actions';
 import { selectIsAuthenticated } from '../../redux/auth/auth/auth.reducer';
-import { selectSearchTerm, selectIsTopSearchResultsSectionOpen, selectIsTopSearchResultsSectionLoading } from '../../redux/search/search.reducer';
+import { selectSearchTerm, selectIsTopSearchResultsSectionOpen, selectIsTopSearchResultsSectionLoading, selectIsLoading } from '../../redux/search/search.reducer';
 import Button from '@material-ui/core/Button';
 
 import './search-bar.styles.scss';
 const SearchBar = ({
+  isLoading,
   isAthenticated,
   searchTerm,
   isTopSearchResultsSectionOpen,
@@ -46,7 +47,7 @@ const SearchBar = ({
             <input type="text" id="searchInput" placeholder={`Find your Music...`} onKeyDown={onEnterPress} onChange={onSearchTextChange} value={searchTerm} />
             <ClearIcon className={`clear-search-btn ${searchTerm !== '' ? 'visible' : ''}`} onClick={clearSearch}></ClearIcon>
           </div>
-          <Button size="large" variant="contained" color="secondary" className="search-btn" onClick={onSearchPressed}>
+          <Button size="large" variant="contained" color="secondary" className="search-btn" onClick={onSearchPressed} disabled={isLoading}>
             Search
           </Button>
 
@@ -76,7 +77,8 @@ const mapStateToProps = state => ({
   searchTerm: selectSearchTerm(state),
   isAthenticated: selectIsAuthenticated(state),
   isTopSearchResultsSectionOpen: selectIsTopSearchResultsSectionOpen(state),
-  isTopSearchResultsSectionLoading: selectIsTopSearchResultsSectionLoading(state)
+  isTopSearchResultsSectionLoading: selectIsTopSearchResultsSectionLoading(state),
+  isLoading: selectIsLoading(state)
 });
 
 export default withRouter(connect(mapStateToProps, { search, onSearchTermChange, clearSearch, toggleTopSearchResultsSection })(SearchBar));
