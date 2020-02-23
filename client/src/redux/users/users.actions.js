@@ -5,8 +5,9 @@ import { setToken } from '../../services/httpService';
 
 export const getUsers = () => async dispatch => {
   try {
+    dispatch({ type: UsersActionTypes.GET_USERS });
     const res = await setToken().get('/api/users');
-    dispatch({ type: UsersActionTypes.GET_USERS, payload: res.data });
+    dispatch({ type: UsersActionTypes.GET_USERS_SUCCESS, payload: res.data });
   } catch (error) {
     const { response: { statusText = '', status = '' } = {} } = error || {};
     dispatch({ type: UsersActionTypes.USERS_ERROR, payload: { msg: statusText, httpStatus: status } });

@@ -10,6 +10,13 @@
         flex-direction: column;
         flex: 1;
 
+
+        .itunes-dashboard-users-loader-container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
         .itunes-dashboard-no-users{
             font-family: 'Concert One', cursive;
             font-size: 2.5rem;

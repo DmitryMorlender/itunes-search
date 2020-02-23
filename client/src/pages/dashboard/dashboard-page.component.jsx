@@ -1,11 +1,13 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
+import Loader from 'react-loader-spinner';
 import { getUsers } from '../../redux/users/users.actions';
+import { selectAreUsersLoading } from '../../redux/users/users.reducer';
 import PropTypes from 'prop-types';
 import UsersTableComponent from '../../containers/users-table.component';
 
 import './dashboard-page.styles.scss';
-const DashboardPage = ({ getUsers, auth: { isAuthenticated, isLoading } }) => {
+const DashboardPage = ({ areUsersLoading, getUsers }) => {
   // _id: "5e4d40d8e9a81f5386af19b4"
   // name: "Dima Mor"
   // email: "test@test.com"
@@ -20,7 +22,13 @@ const DashboardPage = ({ getUsers, auth: { isAuthenticated, isLoading } }) => {
     <div className="itunes-dashboard-container">
       <div className="itunes-dashboard-table-container">
         <h1 className="itunes-main-title">User Managment</h1>
-        <UsersTableComponent />
+        {areUsersLoading ? (
+          <div className="itunes-dashboard-users-loader-container">
+            <Loader type="ThreeDots" color="lightgrey" height={80} width={80} visible={true} />
+          </div>
+        ) : (
+          <UsersTableComponent />
+        )}
       </div>
     </div>
   );
@@ -28,11 +36,11 @@ const DashboardPage = ({ getUsers, auth: { isAuthenticated, isLoading } }) => {
 
 DashboardPage.propTypes = {
   getUsers: PropTypes.func.isRequired,
-  auth: PropTypes.object.isRequired
+  areUsersLoading: PropTypes.bool.isRequired
 };
 
 const mapStateToProps = state => ({
-  auth: state.authReducer
+  areUsersLoading: selectAreUsersLoading(state)
 });
 
 export default connect(mapStateToProps, { getUsers })(DashboardPage);
