@@ -1,4 +1,4 @@
-import ProfileActionTypes from './users.types';
+import UsersActionTypes from './users.types';
 const INITIAL_STATE = {
   users: [],
   isLoading: true,
@@ -8,10 +8,13 @@ const INITIAL_STATE = {
 const usersReducer = (state = INITIAL_STATE, action) => {
   const { type, payload } = action;
   switch (type) {
-    case ProfileActionTypes.GET_USERS:
+    case UsersActionTypes.GET_USERS:
       return { ...state, users: payload, isLoading: false };
-    case ProfileActionTypes.USERS_ERROR:
+    case UsersActionTypes.USERS_ERROR:
       return { ...state, error: payload, isLoading: false };
+    case UsersActionTypes.REMOVE_USER:
+      const currentUsers = [...state.users];
+      return { ...state, users: currentUsers.filter(user => user._id !== payload.removedUser._id) };
     default:
       return state;
   }

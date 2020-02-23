@@ -1,6 +1,7 @@
 import UsersActionTypes from './users.types';
+import ALERT_TYPES from '../../helpers/alertTypes';
 import { setAlert } from '../alert/alert.actions';
-import API, { setToken } from '../../services/httpService';
+import { setToken } from '../../services/httpService';
 
 export const getUsers = () => async dispatch => {
   try {
@@ -15,10 +16,9 @@ export const getUsers = () => async dispatch => {
 export const deleteUser = id => async dispatch => {
   try {
     const res = await setToken().delete(`/api/users/${id}`);
-    console.log('delete user response: ', res);
-    // dispatch({ type: UsersActionTypes.GET_USERS, payload: res.data });
+    dispatch({ type: UsersActionTypes.REMOVE_USER, payload: res.data });
   } catch (error) {
-    const { response: { statusText = '', status = '' } = {} } = error || {};
-    dispatch({ type: UsersActionTypes.USERS_ERROR, payload: { msg: statusText, httpStatus: status } });
+    dispatch(setAlert('Error', error.message, ALERT_TYPES.ERROR, 3000));
+    dispatch({ type: UsersActionTypes.USERS_ERROR, payload: error.message });
   }
 };
