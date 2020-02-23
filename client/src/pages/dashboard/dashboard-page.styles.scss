@@ -3,5 +3,23 @@
     justify-content: center;
     align-items: center;
     margin: auto 15%;
-    margin-top: 5rem;
+    margin-top: 7rem;
+
+    .itunes-dashboard-table-container{
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+
+        .itunes-dashboard-no-users{
+            font-family: 'Concert One', cursive;
+            font-size: 2.5rem;
+        }
+
+        .itunes-main-title{
+            font-family: 'Concert One', cursive;
+            font-size: 5rem;
+            margin: 2rem 0;
+           
+        }
+    }
 }

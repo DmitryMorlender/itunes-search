@@ -1,64 +1,38 @@
 import React, { useEffect } from 'react';
-import { Table } from 'react-bootstrap';
-
 import { connect } from 'react-redux';
-// import { Table, Thead, Tbody, Tr, Th, Td } from 'react-super-responsive-table';
-
-// import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css';
-
-import { getCurrentProfile } from '../../redux/profile/profile.actions';
-import { selectProfile } from '../../redux/profile/profile.reducer';
+import { getUsers } from '../../redux/users/users.actions';
 import PropTypes from 'prop-types';
+import UsersTableComponent from '../../containers/users-table.component';
 
 import './dashboard-page.styles.scss';
-const DashboardPage = ({ getCurrentProfile, auth: { isAuthenticated, isLoading }, profile }) => {
+const DashboardPage = ({ getUsers, auth: { isAuthenticated, isLoading } }) => {
+  // _id: "5e4d40d8e9a81f5386af19b4"
+  // name: "Dima Mor"
+  // email: "test@test.com"
+  // avatar: "//www.gravatar.com/avatar/b642b4217b34b1e8d3bd915fc65c4452?s=200&r=pg&d=mm"
+  // date: "2020-02-19T14:06:16.227Z"
+
   useEffect(() => {
-    getCurrentProfile();
+    getUsers();
   }, []);
+
   return (
     <div className="itunes-dashboard-container">
-      <Table striped bordered hover>
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Username</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>1</td>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td colSpan="2">Larry the Bird</td>
-            <td>@twitter</td>
-          </tr>
-        </tbody>
-      </Table>
+      <div className="itunes-dashboard-table-container">
+        <h1 className="itunes-main-title">User Managment</h1>
+        <UsersTableComponent />
+      </div>
     </div>
   );
 };
 
 DashboardPage.propTypes = {
-  getCurrentProfile: PropTypes.func.isRequired,
-  auth: PropTypes.object.isRequired,
-  profile: PropTypes.object
+  getUsers: PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => ({
-  auth: state.authReducer,
-  profile: selectProfile(state)
+  auth: state.authReducer
 });
 
-export default connect(mapStateToProps, { getCurrentProfile })(DashboardPage);
+export default connect(mapStateToProps, { getUsers })(DashboardPage);
