@@ -9,6 +9,7 @@ const { check, validationResult } = require('express-validator');
 const auth = require('../../middleware/auth');
 const HTTP_STATUSES = require('../../helpers/HTTP_STATUSES');
 
+const Search = require('../../models/Search');
 const User = require('../../models/User');
 
 // @route POST api/users
@@ -79,7 +80,7 @@ router.post(
 router.get('/', auth, async (req, res) => {
   try {
     // See if the user exist
-    let users = await User.find().select('-password');
+    const users = await User.find().select('-password');
     res.json(users);
   } catch (error) {
     console.error(error.message);
@@ -88,18 +89,19 @@ router.get('/', auth, async (req, res) => {
 });
 
 // @route DELETE api/users/:user_id
-// @desc delete user
+// @desc delete user and his searches
 // @access Private
 router.delete('/:user_id', auth, async (req, res) => {
   try {
     const { params } = req;
 
-    const aa = await User.findOne({ _id: mongoose.Types.ObjectId(params.user_id) });
+    await Search.findByIdAndDelete({ _id: mongoose.Types.ObjectId(params.user_id) });
+    const removedUser = await User.findOneAndDelete({ _id: mongoose.Types.ObjectId(params.user_id) });
 
-    return res.json({ msg: 'User deleted ' + params.user_id, aa });
+    return res.json({ removedUser });
   } catch (error) {
     console.error(error.message);
-    res.status(HTTP_STATUSES.SERVER_ERROR_500).send('Server error');
+    res.status(HTTP_STATUSES.SERVER_ERROR_500).send('Server error - Could not delete the user');
   }
 });
 
