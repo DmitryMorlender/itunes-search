@@ -14,7 +14,6 @@ const auth = require('../../middleware/auth');
 // @access Public
 router.get('/', [populateUser, updateSearches], async (req, res) => {
   try {
-    console.log('getting search results');
     const { user, query } = req;
     const stringifiedQuery = querystring.stringify(query);
 
