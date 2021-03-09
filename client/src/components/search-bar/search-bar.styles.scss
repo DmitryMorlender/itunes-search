@@ -7,7 +7,8 @@
 
 
 .itunes-search-container {
-  width: 67%;
+  flex-basis: 67%;
+  flex-grow: 1;
 
   .itunes-search-holder {
 
